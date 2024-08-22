@@ -7,14 +7,14 @@ import 'package:weather/services/location_service.dart';
 import 'package:weather/services/weather_service.dart';
 import 'package:weather/utils/helper_functions.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class WeatherDisplayPage extends StatefulWidget {
+  const WeatherDisplayPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<WeatherDisplayPage> createState() => _WeatherDisplayPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _WeatherDisplayPageState extends State<WeatherDisplayPage> {
   final _weatherService = WeatherService('3d4a65e3f2ac7c5db9d89b965108697d');
   Weather? _weather;
   bool isLoading = true;
@@ -37,14 +37,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: isLoading
+    return isLoading
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : _buildBody(),
-    );
+          : _buildBody();
   }
 
   Widget _buildBody() {
