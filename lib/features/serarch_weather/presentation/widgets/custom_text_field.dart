@@ -6,10 +6,12 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.controller,
     required this.onSearch,
+    required this.onSubmitted,
   });
 
   final TextEditingController controller;
-  final VoidCallback Function() onSearch;
+  final void Function() onSearch;
+  final void Function(String value) onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,7 @@ class CustomTextField extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
     );
     return TextField(
+      onSubmitted: onSubmitted,
       controller: controller,
       style: GoogleFonts.lato(
         color: Colors.white,
@@ -27,11 +30,12 @@ class CustomTextField extends StatelessWidget {
         ),
         hintText: 'Enter city name',
         suffixIcon: IconButton(
-            onPressed: onSearch,
-            icon: const Icon(
-              Icons.search,
-              color: Colors.grey,
-            )),
+          onPressed: onSearch,
+          icon: const Icon(
+            Icons.search,
+            color: Colors.grey,
+          ),
+        ),
         border: outlinedInputBorder,
         fillColor: Colors.grey.shade900,
         filled: true,
