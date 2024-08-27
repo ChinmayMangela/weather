@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:weather/features/serarch_weather/presentation/pages/search_weather.dart';
-import 'package:weather/features/weather_display/presentation/weather_display_page.dart';
+import 'package:weather/features/current_location_weather_display/presentation/current_location_weather_display_page.dart';
+import 'package:weather/features/search_weather/presentation/pages/search_weather_page.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -18,7 +18,7 @@ class _TabsState extends State<Tabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: selectedIndex == 0 ? const WeatherDisplayPage() : const SearchWeather(),
+      body: selectedIndex == 0 ? const CurrentLocationWeatherDisplay() : const SearchWeatherPage(),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
