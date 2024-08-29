@@ -1,4 +1,5 @@
 
+import 'package:weather/utils/helper_functions.dart';
 
 class Forecast {
   final City city;
@@ -7,10 +8,14 @@ class Forecast {
   Forecast({
     required this.city,
     required this.hourlyForecast,
-  });factory Forecast.fromJson(Map<String, dynamic> json) {
+  });
+
+  factory Forecast.fromJson(Map<String, dynamic> json) {
     return Forecast(
       city: City.fromJson(json['city']),
-      hourlyForecast: (json['list'] as List).map((item) => HourlyForecast.fromJson(item)).toList(),
+      hourlyForecast: (json['list'] as List)
+          .map((item) => HourlyForecast.fromJson(item))
+          .toList(),
     );
   }
 }
@@ -21,36 +26,25 @@ class HourlyForecast {
   final List<Weather> weather;
   final Wind wind;
   final double pop;
-  final Rain? rain;
 
   HourlyForecast({
-    required this.time,required this.mainData,
+    required this.time,
+    required this.mainData,
     required this.weather,
     required this.wind,
     required this.pop,
-    this.rain,
   });
 
   factory HourlyForecast.fromJson(Map<String, dynamic> json) {
     return HourlyForecast(
-      time: DateTime.fromMillisecondsSinceEpoch(json['dt'] * 1000),
+      time: HelperFunctions.getFormattedTime(json['dt']),
       mainData: Main.fromJson(json['main']),
-      weather: (json['weather'] as List).map((item) => Weather.fromJson(item)).toList(),
+      weather: (json['weather'] as List)
+          .map((item) => Weather.fromJson(item))
+          .toList(),
       wind: Wind.fromJson(json['wind']),
       pop: json['pop']?.toDouble() ?? 0.0,
-      rain: json['rain'] != null ? Rain.fromJson(json['rain']) : null,
     );
-  }
-}
-
-
-class Rain {
-  final double threeHourVolume;
-
-  Rain({required this.threeHourVolume});
-
-  factory Rain.fromJson(Map<String, dynamic> json) {
-    return Rain(threeHourVolume: json['3h']?.toDouble() ?? 0.0);
   }
 }
 
@@ -71,9 +65,9 @@ class Main {
 
   factory Main.fromJson(Map<String, dynamic> json) {
     return Main(
-      temperature: json['temp'].toDouble(),
-      minTemperature: json['temp_min'].toDouble(),
-      maxTemperature: json['temp_max'].toDouble(),
+      temperature: json['temp'].toDouble() - 273.15,
+      minTemperature: json['temp_min'].toDouble() - 273.15,
+      maxTemperature: json['temp_max'].toDouble() - 273.15,
       humidity: json['humidity'].toDouble(),
       pressure: json['pressure'].toDouble(),
     );
@@ -91,7 +85,9 @@ class Weather {
 
   factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
-        mainCondition: json['main'], description: json['description']);
+      mainCondition: json['main'],
+      description: json['description'],
+    );
   }
 }
 
@@ -103,7 +99,9 @@ class Wind {
   });
 
   factory Wind.fromJson(Map<String, dynamic> json) {
-    return Wind(windSpeed: json['speed'].toDouble());
+    return Wind(
+      windSpeed: json['speed'].toDouble(),
+    );
   }
 }
 

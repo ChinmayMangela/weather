@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:weather/constants/constants.dart';
 import 'package:weather/features/current_location_weather_display/presentation/current_location_weather_display_page.dart';
 import 'package:weather/features/search_weather/presentation/pages/search_weather_page.dart';
 
@@ -17,7 +18,7 @@ class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: backgroundColor,
       body: selectedIndex == 0 ? const CurrentLocationWeatherDisplay() : const SearchWeatherPage(),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
@@ -34,7 +35,7 @@ class _TabsState extends State<Tabs> {
             selectedIndex = index;
           });
         },
-        items: [
+        items: const [
       BottomNavigationBarItem(
           icon: Icon(FontAwesomeIcons.cloud), label: 'Weather'),
       BottomNavigationBarItem(

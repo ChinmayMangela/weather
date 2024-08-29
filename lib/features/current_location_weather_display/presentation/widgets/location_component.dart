@@ -13,8 +13,7 @@ class LocationComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Icon(Icons.location_on, color: Colors.grey,),
-        Text(cityName, style: GoogleFonts.oswald(
+        Text(cityName, style: GoogleFonts.lato(
           color: Colors.grey,
           fontSize: 30,
         ),),

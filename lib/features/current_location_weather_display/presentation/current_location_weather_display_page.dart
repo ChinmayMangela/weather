@@ -15,7 +15,7 @@ class CurrentLocationWeatherDisplay extends StatefulWidget {
 class _CurrentLocationWeatherDisplayState extends State<CurrentLocationWeatherDisplay> {
   final _weatherService = WeatherService('3d4a65e3f2ac7c5db9d89b965108697d');
 
-  Future<Forecast?> _fetchWeather() async {
+  Future<Forecast?> _fetchForecast() async {
     final cityName = await LocationService().fetchCity();
     final weatherData = await _weatherService.fetchWeather(cityName);
     return weatherData;
@@ -23,7 +23,7 @@ class _CurrentLocationWeatherDisplayState extends State<CurrentLocationWeatherDi
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Forecast?>(future: _fetchWeather(), builder: (context, snapshot) {
+    return FutureBuilder<Forecast?>(future: _fetchForecast(), builder: (context, snapshot) {
       switch(snapshot.connectionState) {
         case ConnectionState.waiting:
           return const CustomProgressIndicator();

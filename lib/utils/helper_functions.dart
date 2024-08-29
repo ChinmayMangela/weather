@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class HelperFunctions {
   static String getWeatherAnimatedIcons(String? mainCondition) {
     if (mainCondition == null) return 'assets/clear_day.json';
@@ -27,5 +29,9 @@ class HelperFunctions {
     final sunrise = DateTime(now.year, now.month, now.day, 6, 0);
     final sunset = DateTime(now.year, now.month, now.day, 18, 0);
     return now.isAfter(sunrise) && now.isBefore(sunset);
+  }
+
+  static DateTime getFormattedTime(int timestamp) {
+    return DateTime.fromMillisecondsSinceEpoch(timestamp * 1000, isUtc: true);
   }
 }
