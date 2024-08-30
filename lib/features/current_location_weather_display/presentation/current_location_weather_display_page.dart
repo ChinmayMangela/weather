@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather/features/current_location_weather_display/domain/forecast.dart';
+import 'package:weather/features/current_location_weather_display/domain/models/forecast.dart';
 import 'package:weather/features/current_location_weather_display/presentation/widgets/custom_progress_indicator.dart';
 import 'package:weather/features/current_location_weather_display/presentation/widgets/weather_display.dart';
 import 'package:weather/services/location_service.dart';

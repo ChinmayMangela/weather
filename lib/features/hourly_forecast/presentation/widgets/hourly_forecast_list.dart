@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather/constants/constants.dart';
-import 'package:weather/features/current_location_weather_display/domain/forecast.dart';
-import 'package:weather/features/current_location_weather_display/presentation/widgets/hourly_forecast_card.dart';
+import 'package:weather/features/current_location_weather_display/domain/models/forecast.dart';
+import 'package:weather/features/hourly_forecast/presentation/widgets/hourly_forecast_card.dart';
 
 class HourlyForecastList extends StatelessWidget {
   const HourlyForecastList({super.key, required this.forecast});

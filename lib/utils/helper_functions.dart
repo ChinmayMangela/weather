@@ -31,7 +31,8 @@ class HelperFunctions {
     return now.isAfter(sunrise) && now.isBefore(sunset);
   }
 
-  static DateTime getFormattedTime(int timestamp) {
-    return DateTime.fromMillisecondsSinceEpoch(timestamp * 1000, isUtc: true);
+  static String getFormattedTime(DateTime dateTime) {
+    return DateFormat.jm().format(dateTime);
   }
 }
+

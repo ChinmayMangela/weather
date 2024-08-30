@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:weather/utils/helper_functions.dart';
 
@@ -25,7 +26,7 @@ class HourlyForecastCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            time.toString(),
+            DateFormat('h:mm a').format(time),
             style: style,
           ),
           Lottie.asset(HelperFunctions.getWeatherAnimatedIcons(mainCondition), width: 80, height: 80),

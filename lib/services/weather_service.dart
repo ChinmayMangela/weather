@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather/features/current_location_weather_display/domain/forecast.dart';
+import 'package:weather/features/current_location_weather_display/domain/models/forecast.dart';
 
 class WeatherService {
   final String apiKey;
