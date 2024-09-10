@@ -13,8 +13,8 @@ class LocationComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(cityName, style: GoogleFonts.lato(
-          color: Colors.grey,
+        Text(cityName, style: GoogleFonts.oswald(
+          color: Colors.white,
           fontSize: 30,
         ),),
       ],

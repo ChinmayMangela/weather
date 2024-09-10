@@ -28,7 +28,7 @@ class _TabsState extends State<Tabs> {
     return BottomNavigationBar(
       currentIndex: selectedIndex,
         backgroundColor: Colors.black,
-        selectedItemColor: Colors.purpleAccent,
+        selectedItemColor: const Color(0xffFF83cd),
         unselectedItemColor: Colors.grey,
         onTap: (index) {
           setState(() {

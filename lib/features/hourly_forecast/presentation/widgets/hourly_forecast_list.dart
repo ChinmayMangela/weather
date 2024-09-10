@@ -13,8 +13,8 @@ class HourlyForecastList extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
+        gradient: containerGradient,
         borderRadius: BorderRadius.circular(20),
-        color: containerColor,
       ),
       height: 190,
       child: ListView.builder(

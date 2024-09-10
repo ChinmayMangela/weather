@@ -19,7 +19,7 @@ class AirConditionDisplay extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: containerColor,
+        gradient: containerGradient,
       ),
       child: Padding(
         padding: const EdgeInsets.all(26.0),
